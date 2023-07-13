@@ -80,7 +80,7 @@ class CSVMixin(object):
                 elif hasattr(self, name):
                     data[name] = getattr(self, name)(r)
                 else:
-                    raise ValueError('Unknown field: {}'.format(name))
+                    data[name] = getattr(r, name, '')
 
                 if callable(data[name]):
                     data[name] = data[name]()
